@@ -170,10 +170,14 @@ export default function Poster({ post }: Props) {
       {/* Comments */}
       <div className="flex flex-col gap-2 max-w-2xl mx-auto border p-10 my-10 shadow shadow-yellow-500">
         <h3 className="text-4xl">Comments</h3>
-        <hr className="pb-4"/>
-        {post.comments.map(comment => (
+        <hr className="pb-4" />
+        {post.comments.map((comment) => (
           <div key={comment._id}>
-          <p> <span className="text-yellow-500  ">{comment.name}: </span>{comment.comment}</p>
+            <p>
+              {" "}
+              <span className="text-yellow-500  ">{comment.name}: </span>
+              {comment.comment}
+            </p>
           </div>
         ))}
       </div>
@@ -181,7 +185,7 @@ export default function Poster({ post }: Props) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }: any) {
   const query = `*[_type == "post" && slug.current == $slug][0]{
   _id,
   _createdAt,
