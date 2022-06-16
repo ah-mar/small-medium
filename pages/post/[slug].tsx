@@ -217,6 +217,7 @@ body,
     props: {
       post,
     },
+    revalidate: 10,
   };
 }
 
